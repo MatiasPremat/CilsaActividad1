@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Datos Personales</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="form-container" id="form-container">
+        <h1>Formulario de Datos Personales</h1>
+
+        <form onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" class="data-field">
+            </div>
+            
+            <div class="form-group">
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" class="data-field">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="data-field">
+            </div>
+            
+            <div class="form-group">
+                <label for="fecha-nacimiento">Fecha de Nacimiento:</label>
+                <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" class="data-field">
+            </div>
+            
+            <div class="form-group">
+                <label for="pais-residencia">País de Residencia:</label>
+                <input type="text" id="pais-residencia" name="pais-residencia" class="data-field">
+            </div>
+            
+            <div class="form-group submit-group">
+                <input type="submit" value="Enviar" id="submit-btn">
+            </div>
+
+            <div class="form-group button-group">
+                <button type="button" id="style1-btn" onclick="disableHighContrast()" style="display: none;">Estilo 1</button>
+                <button type="button" id="high-contrast-btn" onclick="enableHighContrast()">Estilo de Alto Contraste</button>
+            </div>
+        </form>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
