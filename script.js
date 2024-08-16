@@ -32,9 +32,15 @@ function validateForm() {
     if (!nombre) {
         showError('nombre', 'El campo Nombre es obligatorio.');
         isValid = false;
+    } else if (!validateOnlyLetters(nombre)) {
+        showError('nombre', 'El campo Nombre solo puede contener letras.');
+        isValid = false;
     }
     if (!apellido) {
         showError('apellido', 'El campo Apellido es obligatorio.');
+        isValid = false;
+    } else if (!validateOnlyLetters(apellido)) {
+        showError('apellido', 'El campo Apellido solo puede contener letras.');
         isValid = false;
     }
     if (!email) {
@@ -53,6 +59,9 @@ function validateForm() {
     }
     if (!paisResidencia) {
         showError('pais-residencia', 'El campo País de Residencia es obligatorio.');
+        isValid = false;
+    } else if (!validateOnlyLetters(paisResidencia)) {
+        showError('pais-residencia', 'El campo País de Residencia solo puede contener letras.');
         isValid = false;
     }
 
@@ -82,4 +91,9 @@ function validateFechaNacimiento(fecha) {
     const fechaNacimiento = new Date(fecha);
     const fechaActual = new Date();
     return fechaNacimiento <= fechaActual; // Retorna verdadero si la fecha de nacimiento no es posterior a la actual
+}
+
+function validateOnlyLetters(value) {
+    const re = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/;
+    return re.test(value);
 }
